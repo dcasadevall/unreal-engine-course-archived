@@ -1,0 +1,9 @@
+C:\Users\Daniel\source\repos\UnrealCourse\Section_01\Intermediate\Build\Win64\UE4Editor\Development\Section_01\Definitions.Section_01.h
+D:\Games\UE_4.25\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Games\UE_4.25\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\Daniel\source\repos\UnrealCourse\Section_01\Source\Section_01/Section_01GameModeBase.h
+D:\Games\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\Games\UE_4.25\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+D:\Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\Daniel\source\repos\UnrealCourse\Section_01\Intermediate\Build\Win64\UE4Editor\Inc\Section_01\Section_01GameModeBase.generated.h
