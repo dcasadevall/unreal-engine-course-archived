@@ -4,16 +4,17 @@
 
 #include "FBullCowGame.h"
 
-FBullCowGame::FBullCowGame(int WordLength) {
-
+FBullCowGame::FBullCowGame(int WordLength, int MaxAttempts) {
+    this->WordLength = WordLength;
+    this->MaxAttempts = MaxAttempts;
 }
 
 int FBullCowGame::GetMaxAttempts() {
-    return 0;
+    return MaxAttempts;
 }
 
 int FBullCowGame::GetCurrentAttempt() {
-    return 0;
+    return CurrentAttempt;
 }
 
 bool FBullCowGame::IsGameWon() {

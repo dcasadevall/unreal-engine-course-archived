@@ -9,15 +9,16 @@
 
 class FBullCowGame {
   public:
-    explicit FBullCowGame(int WordLength);
+    explicit FBullCowGame(int WordLength, int MaxAttempts);
     int GetMaxAttempts();
     int GetCurrentAttempt();
     bool IsGameWon();
     std::string CheckGuessValidity(std::string);
 
   private:
+    int WordLength;
     int MaxAttempts;
-    int CurrentAttempt;
+    int CurrentAttempt = 1;
     bool IsIsogram(std::string);
     std::string CalculateResult(std::string);
 };

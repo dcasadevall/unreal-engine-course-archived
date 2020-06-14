@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
+#include "FBullCowGame.h"
 
 /**
  * Introduces the game.
  */
-void PrintIntro();
+void PrintIntro(int WordLength);
 
 /**
  * Plays the game, by asking the player a guess and printing it a series of times.
  */
-void PlayGame();
+void PlayGame(int WordLength);
 
 /**
  * Asks for a guess and returns it.
@@ -27,25 +28,25 @@ bool AskToPlayAgain();
  * Application entry point
  */
 int main() {
-    PrintIntro();
+    constexpr int WORD_LENGTH = 6;
+    PrintIntro(WORD_LENGTH);
 
     do {
-        PlayGame();
+        PlayGame(WORD_LENGTH);
     } while (AskToPlayAgain());
 
     return 0;
 }
 
-void PrintIntro() {
-    constexpr int WORD_LENGTH = 6;
-
+void PrintIntro(const int WordLength) {
     std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
-    std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
+    std::cout << "Can you guess the " << WordLength << " letter isogram I'm thinking of?\n";
 }
 
-void PlayGame() {
-    constexpr int NUMBER_OF_TURNS = 5;
-    for (int i = 0; i < NUMBER_OF_TURNS; i++) {
+void PlayGame(int WordLength) {
+    FBullCowGame BCGame = FBullCowGame(WordLength, 5);
+
+    for (int i = 0; i < BCGame.GetMaxAttempts(); i++) {
         std::string Guess = GetGuess();
         std::cout << "Your guess was: " << Guess << std::endl;
     }
