@@ -9,7 +9,7 @@
 
 class FBullCowGame {
   public:
-    FBullCowGame(int WordLength);
+    explicit FBullCowGame(int WordLength);
     int GetMaxAttempts();
     int GetCurrentAttempt();
     bool IsGameWon();
@@ -23,4 +23,3 @@ class FBullCowGame {
 };
 
 #endif //SECTION_02_BULLCOWGAME_FBULLCOWGAME_H_
-
