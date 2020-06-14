@@ -9,18 +9,24 @@ FBullCowGame::FBullCowGame(int WordLength, int MaxAttempts) {
     this->MaxAttempts = MaxAttempts;
 }
 
-int FBullCowGame::GetMaxAttempts() {
+int FBullCowGame::GetMaxAttempts() const {
     return MaxAttempts;
 }
 
-int FBullCowGame::GetCurrentAttempt() {
+int FBullCowGame::GetCurrentAttempt() const {
     return CurrentAttempt;
 }
 
-bool FBullCowGame::IsGameWon() {
+bool FBullCowGame::IsGameWon() const {
     return false;
 }
 
+bool FBullCowGame::SubmitGuess(std::string) {
+    CurrentAttempt++;
+    return false;
+}
+
+#pragma region Private
 std::string FBullCowGame::CheckGuessValidity(std::string) {
     return std::string();
 }
@@ -28,7 +34,4 @@ std::string FBullCowGame::CheckGuessValidity(std::string) {
 bool FBullCowGame::IsIsogram(std::string) {
     return false;
 }
-
-std::string FBullCowGame::CalculateResult(std::string) {
-    return std::string();
-}
+#pragma endregion Private

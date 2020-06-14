@@ -10,17 +10,17 @@
 class FBullCowGame {
   public:
     explicit FBullCowGame(int WordLength, int MaxAttempts);
-    int GetMaxAttempts();
-    int GetCurrentAttempt();
-    bool IsGameWon();
-    std::string CheckGuessValidity(std::string);
+    int GetMaxAttempts() const;
+    int GetCurrentAttempt() const;
+    bool IsGameWon() const;
+    bool SubmitGuess(std::string);
 
   private:
     int WordLength;
     int MaxAttempts;
     int CurrentAttempt = 1;
     bool IsIsogram(std::string);
-    std::string CalculateResult(std::string);
+    std::string CheckGuessValidity(std::string);
 };
 
 #endif //SECTION_02_BULLCOWGAME_FBULLCOWGAME_H_
