@@ -10,7 +10,7 @@ void PrintIntro(int WordLength);
 /**
  * Plays the game, by asking the player a guess and printing it a series of times.
  */
-void PlayGame(int WordLength);
+void PlayGame(FBullCowGame Game);
 
 /**
  * Asks for a guess and returns it.
@@ -29,10 +29,13 @@ bool AskToPlayAgain();
  */
 int main() {
     constexpr int WORD_LENGTH = 6;
-    PrintIntro(WORD_LENGTH);
+    constexpr int MAX_ATTEMPTS = 8;
+
+    FBullCowGame BCGame = FBullCowGame(WORD_LENGTH, MAX_ATTEMPTS);
 
     do {
-        PlayGame(WORD_LENGTH);
+        PrintIntro(WORD_LENGTH);
+        PlayGame(BCGame);
     } while (AskToPlayAgain());
 
     return 0;
@@ -43,11 +46,13 @@ void PrintIntro(const int WordLength) {
     std::cout << "Can you guess the " << WordLength << " letter isogram I'm thinking of?\n";
 }
 
-void PlayGame(int WordLength) {
-    FBullCowGame BCGame = FBullCowGame(WordLength, 5);
+void PlayGame(FBullCowGame Game) {
+    // TODO Change from for to while loop once we validate tries
+    for (int i = 0; i < Game.GetMaxAttempts(); i++) {
+        std::string Guess = GetGuess(); // TODO Guess validation
 
-    for (int i = 0; i < BCGame.GetMaxAttempts(); i++) {
-        std::string Guess = GetGuess();
+        // Submit valid guess
+        // Print number of bulls and cows
         std::cout << "Your guess was: " << Guess << std::endl;
     }
 }

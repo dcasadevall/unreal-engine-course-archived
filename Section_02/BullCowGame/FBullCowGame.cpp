@@ -7,6 +7,7 @@
 FBullCowGame::FBullCowGame(int WordLength, int MaxAttempts) {
     this->WordLength = WordLength;
     this->MaxAttempts = MaxAttempts;
+    this->CurrentAttempt = 1;
 }
 
 int FBullCowGame::GetMaxAttempts() const {

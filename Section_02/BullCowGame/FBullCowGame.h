@@ -10,15 +10,19 @@
 class FBullCowGame {
   public:
     explicit FBullCowGame(int WordLength, int MaxAttempts);
+
     int GetMaxAttempts() const;
     int GetCurrentAttempt() const;
     bool IsGameWon() const;
+
     bool SubmitGuess(std::string);
+    // Provide method for counting bulls and cows and increasing turn #
 
   private:
     int WordLength;
     int MaxAttempts;
-    int CurrentAttempt = 1;
+    int CurrentAttempt;
+
     bool IsIsogram(std::string);
     std::string CheckGuessValidity(std::string);
 };
