@@ -7,24 +7,27 @@
 
 #include <string>
 
+using FString = std::string;
+using int32 = int;
+
 class FBullCowGame {
   public:
-    explicit FBullCowGame(int WordLength, int MaxAttempts);
+    explicit FBullCowGame(int32 WordLength, int32 MaxAttempts);
 
-    int GetMaxAttempts() const;
-    int GetCurrentAttempt() const;
+    int32 GetMaxAttempts() const;
+    int32 GetCurrentAttempt() const;
     bool IsGameWon() const;
 
-    bool SubmitGuess(std::string);
+    bool SubmitGuess(FString);
     // Provide method for counting bulls and cows and increasing turn #
 
   private:
-    int WordLength;
-    int MaxAttempts;
-    int CurrentAttempt;
+    int32 WordLength;
+    int32 MaxAttempts;
+    int32 CurrentAttempt;
 
-    bool IsIsogram(std::string);
-    std::string CheckGuessValidity(std::string);
+    bool IsIsogram(FString);
+    FString CheckGuessValidity(FString);
 };
 
 #endif //SECTION_02_BULLCOWGAME_FBULLCOWGAME_H_

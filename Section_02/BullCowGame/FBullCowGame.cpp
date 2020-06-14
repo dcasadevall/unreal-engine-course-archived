@@ -4,17 +4,17 @@
 
 #include "FBullCowGame.h"
 
-FBullCowGame::FBullCowGame(int WordLength, int MaxAttempts) {
+FBullCowGame::FBullCowGame(int32 WordLength, int32 MaxAttempts) {
     this->WordLength = WordLength;
     this->MaxAttempts = MaxAttempts;
     this->CurrentAttempt = 1;
 }
 
-int FBullCowGame::GetMaxAttempts() const {
+int32 FBullCowGame::GetMaxAttempts() const {
     return MaxAttempts;
 }
 
-int FBullCowGame::GetCurrentAttempt() const {
+int32 FBullCowGame::GetCurrentAttempt() const {
     return CurrentAttempt;
 }
 
@@ -22,17 +22,17 @@ bool FBullCowGame::IsGameWon() const {
     return false;
 }
 
-bool FBullCowGame::SubmitGuess(std::string) {
+bool FBullCowGame::SubmitGuess(FString) {
     CurrentAttempt++;
     return false;
 }
 
 #pragma region Private
-std::string FBullCowGame::CheckGuessValidity(std::string) {
-    return std::string();
+FString FBullCowGame::CheckGuessValidity(FString) {
+    return FString();
 }
 
-bool FBullCowGame::IsIsogram(std::string) {
+bool FBullCowGame::IsIsogram(FString) {
     return false;
 }
 #pragma endregion Private
