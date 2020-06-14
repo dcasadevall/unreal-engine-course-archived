@@ -36,13 +36,13 @@ bool AskToPlayAgain();
  * Application entry point32
  */
 int main() {
-    constexpr int32 WORD_LENGTH = 6;
+    const FString HIDDEN_WORD = "planet";
     constexpr int32 MAX_ATTEMPTS = 8;
 
-    FBullCowGame BCGame = FBullCowGame(WORD_LENGTH, MAX_ATTEMPTS);
+    FBullCowGame BCGame = FBullCowGame(HIDDEN_WORD, MAX_ATTEMPTS);
 
     do {
-        Print32Intro(WORD_LENGTH);
+        Print32Intro(HIDDEN_WORD.length());
         PlayGame(BCGame);
     } while (AskToPlayAgain());
 

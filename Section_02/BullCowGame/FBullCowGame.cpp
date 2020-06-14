@@ -4,10 +4,12 @@
 
 #include "FBullCowGame.h"
 
-FBullCowGame::FBullCowGame(int32 WordLength, int32 MaxAttempts) {
-    this->WordLength = WordLength;
-    this->MaxAttempts = MaxAttempts;
+FBullCowGame::FBullCowGame(const FString& HiddenWord, int32 MaxAttempts) {
     this->CurrentAttempt = 1;
+
+    this->HiddenWord = HiddenWord;
+    this->WordLength = HiddenWord.length();
+    this->MaxAttempts = MaxAttempts;
 }
 
 int32 FBullCowGame::GetMaxAttempts() const {
@@ -22,9 +24,18 @@ bool FBullCowGame::IsGameWon() const {
     return false;
 }
 
-bool FBullCowGame::SubmitGuess(FString) {
+FBullCowCount FBullCowGame::SubmitGuess(FString) {
+    // Increment the turn number
     CurrentAttempt++;
-    return false;
+
+    // Setup a return variable
+    FBullCowCount BullCowCount;
+
+    // loop through all letters in guess
+
+
+    // Compare a letter against the hidden word.
+    return BullCowCount;
 }
 
 #pragma region Private

@@ -10,21 +10,30 @@
 using FString = std::string;
 using int32 = int;
 
+struct FBullCowCount {
+    int32 Bulls = 0;
+    int32 Cows = 0;
+};
+
 class FBullCowGame {
   public:
-    explicit FBullCowGame(int32 WordLength, int32 MaxAttempts);
+    explicit FBullCowGame(const FString& HiddenWord, int32 MaxAttempts);
 
     int32 GetMaxAttempts() const;
     int32 GetCurrentAttempt() const;
     bool IsGameWon() const;
 
-    bool SubmitGuess(FString);
-    // Provide method for counting bulls and cows and increasing turn #
+    /**
+     * Counts bulls & cows, and increases attempt #.
+     * Assumes valid guess.
+     */
+    FBullCowCount SubmitGuess(FString);
 
   private:
     int32 WordLength;
     int32 MaxAttempts;
     int32 CurrentAttempt;
+    FString HiddenWord;
 
     bool IsIsogram(FString);
     FString CheckGuessValidity(FString);
