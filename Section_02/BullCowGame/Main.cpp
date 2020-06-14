@@ -1,17 +1,49 @@
 #include <iostream>
 #include <string>
 
+/**
+ * Introduces the game.
+ */
+void PrintIntro();
+
+/**
+ * Plays the game, by asking the player a guess and printing it a series of times.
+ */
+void PlayGame();
+
+/**
+ * Asks for a guess and returns it.
+ * @return The guess introduced by the player
+ */
+std::string GetGuess();
+
+/**
+ * Application entry point
+ */
 int main() {
-	constexpr int WORD_LENGTH = 6;
+    PrintIntro();
+    PlayGame();
 
-	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
-	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
+    return 0;
+}
+void PlayGame() {
+    constexpr int NUMBER_OF_TURNS = 5;
+    for (int i = 0; i < NUMBER_OF_TURNS; i++) {
+        std::cout << "Your guess was: " << GetGuess() << std::endl;
+    }
+}
 
-	// Get a guess from the player
-	std::string Guess = "";
-	std::cin >> Guess;
+void PrintIntro() {
+    constexpr int WORD_LENGTH = 6;
 
-	// Repeat the guess back to them
+    std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+    std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
+}
 
-	return 0;
+std::string GetGuess() {
+    std::cout << "Enter your guess: ";
+    std::string Guess;
+    std::getline(std::cin, Guess);
+
+    return Guess;
 }
