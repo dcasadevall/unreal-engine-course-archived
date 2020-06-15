@@ -60,15 +60,18 @@ void Print32Intro(const int32 WordLength) {
 }
 
 void PlayGame(FBullCowGame Game, int32 ExpectedWordLength) {
-    // TODO Change from for to while loop once we validate tries
-    for (int32 i = 0; i < Game.GetMaxAttempts(); i++) {
+    while (Game.GetCurrentAttempt() < Game.GetMaxAttempts()) {
         FText Guess = GetGuess();
+
+        // If not valid, try again without submitting the guess.
+        // This does not increase the attempt counter.
         EGuessStatus GuessStatus = Game.CheckGuessValidity(Guess);
         if (GuessStatus != EGuessStatus::OK) {
             PrintInvalidGuessReason(GuessStatus, ExpectedWordLength);
             continue;
         }
 
+        // Valid guess. Increase the attempt counter and check.
         FBullCowCount BullCowCount = Game.SubmitGuess(Guess);
         std::cout << "Your guess was: " << Guess << std::endl;
         std::cout << BullCowCount.Bulls << " Bulls. " << BullCowCount.Cows << " Cows.\n";
