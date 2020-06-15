@@ -11,7 +11,6 @@ FBullCowGame::FBullCowGame(const FString& HiddenWord, int32 MaxAttempts) {
     this->CurrentAttempt = 1;
 
     this->HiddenWord = HiddenWord;
-    this->WordLength = HiddenWord.length();
     this->MaxAttempts = MaxAttempts;
 }
 
@@ -23,15 +22,8 @@ int32 FBullCowGame::GetCurrentAttempt() const {
     return CurrentAttempt;
 }
 
-bool FBullCowGame::IsGameWon() const {
-    return false;
-}
-
-FBullCowCount FBullCowGame::SubmitGuess(FString Guess) {
-    // Increment the turn number
+FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess) {
     CurrentAttempt++;
-
-    // Setup a return variable
     FBullCowCount BullCowCount = FBullCowCount();
 
     // loop through all letters in guess
@@ -46,6 +38,9 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess) {
            }
        }
     }
+
+    // We have found the hidden word if the number of bulls is equal to the word length.
+    BullCowCount.IsHiddenWord = BullCowCount.Bulls == HiddenWord.length();
 
     // Compare a letter against the hidden word.
     return BullCowCount;

@@ -72,8 +72,15 @@ void PlayGame(FBullCowGame Game, int32 ExpectedWordLength) {
         }
 
         // Valid guess. Increase the attempt counter and check.
-        FBullCowCount BullCowCount = Game.SubmitGuess(Guess);
+        FBullCowCount BullCowCount = Game.SubmitValidGuess(Guess);
         std::cout << "Your guess was: " << Guess << std::endl;
+
+        // We won. End here.
+        if (BullCowCount.IsHiddenWord) {
+            std::cout << "You Win!\n";
+            break;
+        }
+
         std::cout << BullCowCount.Bulls << " Bulls. " << BullCowCount.Cows << " Cows.\n";
     }
 }

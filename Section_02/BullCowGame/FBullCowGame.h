@@ -13,6 +13,7 @@ using int32 = int;
 struct FBullCowCount {
     int32 Bulls = 0;
     int32 Cows = 0;
+    bool IsHiddenWord = false;
 };
 
 enum EGuessStatus {
@@ -28,17 +29,15 @@ class FBullCowGame {
 
     int32 GetMaxAttempts() const;
     int32 GetCurrentAttempt() const;
-    bool IsGameWon() const;
 
     /**
      * Counts bulls & cows, and increases attempt #.
      * Assumes valid guess.
      */
-    FBullCowCount SubmitGuess(FString);
+    FBullCowCount SubmitValidGuess(FString);
     EGuessStatus CheckGuessValidity(FString) const;
 
   private:
-    int32 WordLength;
     int32 MaxAttempts;
     int32 CurrentAttempt;
     FString HiddenWord;
